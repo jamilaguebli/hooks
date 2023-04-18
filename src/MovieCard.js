@@ -1,26 +1,33 @@
-import Button from 'react-bootstrap/Button';
+import React from 'react'
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import StarRatingComponent from 'react-star-rating-component';
+import { Link } from 'react-router-dom';
 
-function BasicExample({el}) {
+
+
+
+function MovieCard({el}) {
   return (
-
-    <Card style={{ width: '18rem'   }}>
-      <Card.Img variant="top" src={el.img}  style={{widh:"100px ",height:"100px"}}/>
+    <div>
+        <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={el.posterURL} />
       <Card.Body>
         <Card.Title>{el.title}</Card.Title>
         <Card.Text>
-          {el.description}
-     
+          {el.descreption}
+          <StarRatingComponent
+              name="stars" /* name of the radio input, it is required */
+              value={el.rating} /* number of selected icon (`0` - none, `1` - first) */
+              editing={false} /* is component available for editing, default `true` */
+/>
         </Card.Text>
-        <Card.Title>{el.posterURL}</Card.Title>
-        <Card.Title>{el.rating}</Card.Title>
-        
+        <Link to={`/seemore/${el.id}`}>  <button>See More</button>   </Link>
         
       </Card.Body>
     </Card>
-   
-  );
+    </div>
+  )
 }
 
-export default BasicExample;
+export default MovieCard

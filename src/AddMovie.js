@@ -1,35 +1,36 @@
-import React, { useRef , useState } from 'react'
+import React, { useRef} from 'react'
+
+const AddMovie = ({AddNewMovies}) => {
+
+
+const titleRef = useRef()
+const descriptionRef=useRef()
+const ratingRef = useRef()
+const posterURLRef= useRef()
+const idRef= useRef()
 
 
 
-function AddMovie({AddNewMovie}) {
-    const[inputs,setInputs]=useState({
-       img:"",
-        title:"",
-        description:"",
-        osterURL:"",
-        rating:""
-    })
-     const handleChange =(e) =>{
-      setInputs ({...inputs,[e.target.name]:e.target.value})
-     }
-   
-    const handleAdd = () =>{
-      AddNewMovie (inputs)
+
+
+    const handelAdd = ()=>{
+      AddNewMovies({
+                title :titleRef.current.value,
+                description : descriptionRef.current.value ,
+                rating :ratingRef.current.value ,
+                posterURL : posterURLRef.current.value,
+                id : idRef.current.value
+          
+        })
     }
   return (
     <div>
-      <input placeholder='img' name='img'  onChange={handleChange}/> 
-      
-      <input placeholder='title' name='title'  onChange={handleChange}/>
-      
-      <input placeholder='description' name='description' onChange={handleChange}/>
-      
-      <input placeholder='posterURL' name='posterURL' onChange={handleChange} />
-      
-      <input placeholder='rating' name='rating'  onChange={handleChange}/>
-      
-      <button onClick={ handleAdd}> Add</button>
+        <input placeholder='title' name='title'  ref ={titleRef}/>
+        <input placeholder='description' name='description' ref ={descriptionRef} />
+        <input placeholder='rating' name='rating' ref ={ratingRef}/>
+        <input placeholder='posterURL' name='posterURL' ref ={posterURLRef} /><br/>
+        <input placeholder='id' name='id' ref ={idRef} /><br/>
+        <button onClick={handelAdd}>Add</button>
     </div>
   )
 }

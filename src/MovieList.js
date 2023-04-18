@@ -1,14 +1,16 @@
 import React from 'react'
-import MovieCard from './MovieCard';
-function MovieList({movies}) {
+import MovieCard from './MovieCard'
+
+
+const MovieList = ({Movies}) => {
   return (
     <div>
-      {
-      movies.map((el,i) => <MovieCard el= {el} key={i}/>)
-      }
+     
+     { Movies.map((el,i) => <MovieCard el = {el} key = {i}  />) }
+     
+      
     </div>
   )
 }
 
 export default MovieList
-
