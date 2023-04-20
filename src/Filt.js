@@ -2,7 +2,7 @@ import React from 'react'
 import StarRatingComponent from 'react-star-rating-component';
 
 
-const Filter  = ({searchMovies , searchRate}) => {
+const Filt = ({searchMovies , searchRate}) => {
    
   return (
     <div>
@@ -19,4 +19,4 @@ const Filter  = ({searchMovies , searchRate}) => {
   )
 }
 
-export default Filter 
+export default Filt 

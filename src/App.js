@@ -2,7 +2,7 @@
 import React from 'react'
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import Filter from './Filter ';
+import Filt from './Filt';
 import { useState } from 'react';
 import "./App.css"
 
@@ -18,9 +18,9 @@ function App() {
 
   const [Movies , setMovies] = useState([
 
-              { id :1 ,title : "movie1", description : "desc1", rating : 5 ,posterURL : "https://upload.wikimedia.org/wikipedia/en/thumb/a/af/The_Godfather%2C_The_Game.jpg/220px-The_Godfather%2C_The_Game.jpg"},
-              { id :2 ,title : "movie2", description : "desc2 ", rating : 2 ,posterURL : "https://fr.web.img2.acsta.net/pictures/18/07/02/17/25/3643090.jpg"},
-              { id :3 ,title : "movie3", description : "desc3", rating : 4 ,posterURL :"https://w0.peakpx.com/wallpaper/149/827/HD-wallpaper-joker-2020-joaquin-phoenix-movies-smile.jpg"}
+              { id :1 ,title : "movie1", description : "desc1", rating : 5 ,posterURL : "https://images4.alphacoders.com/573/57394.jpg"},
+              { id :2 ,title : "movie2", description : "desc2 ", rating : 2 ,posterURL : "https://images4.alphacoders.com/573/57394.jpg"},
+              { id :3 ,title : "movie3", description : "desc3", rating : 4 ,posterURL :"https://images4.alphacoders.com/573/57394.jpg"}
   ])
   const AddNewMovies= (newMovie)=>{
 
@@ -48,7 +48,7 @@ function App() {
       
            <Route path='/' element={   
               <>
-                <Filter  searchMovies= {searchMovies}  searchRate={searchRate} /> 
+                <Filt  searchMovies= {searchMovies}  searchRate={searchRate} /> 
 
                 <MovieList Movies = {Movies.filter(elm => elm.title.toLocaleLowerCase().includes(keywords.toLocaleLowerCase().trim())&& elm.rating>= rate)} />
                 
